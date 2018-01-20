@@ -15,8 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/example',function(){
+	return view('layouts.example');
+});
+
 Route::get('form','formController@index')->name('form');
 Route::post('form','formController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
