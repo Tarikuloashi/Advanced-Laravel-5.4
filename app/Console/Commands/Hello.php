@@ -11,7 +11,7 @@ class Hello extends Command
      *
      * @var string
      */
-    protected $signature = 'Hello';
+    protected $signature = 'Hello {name=tarikul} {--L|lastname=oashi}';
 
     /**
      * The console command description.
@@ -37,6 +37,21 @@ class Hello extends Command
      */
     public function handle()
     {
-        //
+        // $name = $this->argument('name');
+        // $lname = $this->option('lastname');
+        // $this->info($name.' '.$lname);
+
+
+        //$name = $this->ask('What is your Name:');
+        //Show this on error message
+        //  $this->error($name);
+        
+        //  show secret type writing
+        $name = $this->secret('What is your Name:');
+        $confirm = $this->confirm('Do you think you print your name');
+        if($confirm){
+            $this->info($name);
+        }
+        
     }
 }
